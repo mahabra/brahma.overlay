@@ -1,5 +1,7 @@
 Brahma.overlay
 ---
+Plugin for Brahma library which allows you to create modal windows
+
 ## Usage
 ```javascript
 Brahma('selector').component('overlay', {
