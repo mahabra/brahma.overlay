@@ -282,20 +282,20 @@ Required jUqery
 				if (arguments.length>0) {
 					switch(typeof arguments[0]) {
 						case 'function':
-
 							arguments[0].call(this, this.wrappers.content);
 							this.reInitContent();
-							return this;
+						break;
+						case 'object':
+							$(this.wrappers.content).empty().put($(arguments[0]));
 						break;
 						default:
-							return this.wrappers.content;
+							$(this.wrappers.content).html(arguments[0]);
 						break;
 					}
+					return this;
 					
 				} else {
-					this.wrappers.content.html(arguments[0]);
-
-					return this;
+					return this.wrappers.content;
 				};
 
 			},
