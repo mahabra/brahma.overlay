@@ -1,5 +1,7 @@
 Brahma.overlay
 ---
+Plugin for Brahma library which allows you to create modal windows
+
 ## Usage
 ```javascript
 Brahma('selector').component('overlay', {
@@ -34,7 +36,7 @@ Selector is not the content of the layer! Selector is a container inside which c
 - false : fading
 
 ## Depends
-Brahma, jQuery, jUqery.tie
+Brahma, jQuery, jQqery.tie
 
 ## Authors
 Vladimir Morulus
