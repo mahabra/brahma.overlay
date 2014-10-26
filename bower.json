@@ -1,10 +1,10 @@
 {
   "name": "brahma.overlay",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "authors": [
     "Morulus <vladimirmorulus@gmail.com>"
   ],
-  "description": "Plugin for brahma to create HTML overlayer",
+  "description": "Plugin for brahma to create HTML modal windows",
   "main": "brahma.overlay.js",
   "moduleType": [
     "amd",
@@ -13,10 +13,12 @@
   "keywords": [
     "brahmajs",
     "overlay",
-    "plugin"
+    "plugin",
+    "modal",
+    "popup"
   ],
   "license": "MIT",
-  "homepage": "http://brahmajs.com",
+  "homepage": "https://github.com/morulus/brahma.overlay",
   "dependencies": {
     "jquery": ">=1.7.1",
     "jquery.tie": "latest",
