@@ -31,7 +31,7 @@ Required jUqery
 				"class": false,
 				freezeDocument: true,
 				verticalMargin: false, // at start make shift from cleint border
-				autoshow: true, // autoshow after creating,
+				autoshow: false, // autoshow after creating,
 				zIndex: false,
 				outsideClose: true, // Close by click at outside
 				escapeClose: false, // Close by press ESC,
@@ -65,12 +65,12 @@ Required jUqery
 						e.stopPropagation();
 					});
 					$(this.wrappers.overlay).click(function() {
-						component.close();
+						component.hide();
 					});
 				}
 				// Register hide on pressing ESC
 				this.bind('document.keydown', function(e) {
-					if (e.which==27) this.close();
+					if (e.which==27) this.hide();
 				});
 				Brahma.document.translateEvents(this, 'document.keydown');
 				// Autobinds
@@ -82,7 +82,7 @@ Required jUqery
 				var component = this;
 				if (this.config.autobinds) $(this.wrappers.content).find('[overlay-trigger=close]').click(function() {
 					$(this).removeAttr("overlay-trigger");
-					component.close();
+					component.hide();
 					return false;
 				});		
 			},
@@ -282,8 +282,10 @@ Required jUqery
 				if (arguments.length>0) {
 					switch(typeof arguments[0]) {
 						case 'function':
+
 							arguments[0].call(this, this.wrappers.content);
 							this.reInitContent();
+							
 						break;
 						case 'object':
 							$(this.wrappers.content).empty().put($(arguments[0]));
@@ -338,10 +340,6 @@ Required jUqery
 				
 				return this;
 				
-			},
-			close: function(callback) {
-				this.trigger('close');
-				this.hide(callback || false);
 			},
 			hide: function(callback) {
 
