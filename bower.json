@@ -1,0 +1,25 @@
+{
+  "name": "brahma.overlay",
+  "version": "0.1.0",
+  "authors": [
+    "Morulus <vladimirmorulus@gmail.com>"
+  ],
+  "description": "Plugin for brahma to create HTML overlayer",
+  "main": "brahma.overlay.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "brahmajs",
+    "overlay",
+    "plugin"
+  ],
+  "license": "MIT",
+  "homepage": "http://brahmajs.com",
+  "dependencies": {
+    "jquery": ">=1.7.1",
+    "jquery.tie": "latest",
+    "brahma": ">=1.0.0"
+  }
+}
