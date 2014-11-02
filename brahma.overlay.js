@@ -15,12 +15,14 @@ Required jUqery
 				panel: {
 					style: {
 
-					}
+					},
+					"class": false
 				},
 				overlay: {
 					style: {
 						
-					}
+					},
+					"class": false
 				},
 				effect: {
 					'type': 'fade',
@@ -74,17 +76,24 @@ Required jUqery
 				});
 				Brahma.document.translateEvents(this, 'document.keydown');
 				// Autobinds
-				this.reInitContent();
+				this.bindContents();
 
 				return this;
 			},
-			reInitContent: function() {
+			bindContents: function() {
 				var component = this;
-				if (this.config.autobinds) $(this.wrappers.content).find('[overlay-trigger=close]').click(function() {
-					$(this).removeAttr("overlay-trigger");
-					component.hide();
-					return false;
-				});		
+				if (this.config.autobinds) {
+					$(this.wrappers.content).find('[overlay-trigger=close]').click(function() {
+						$(this).removeAttr("overlay-trigger");
+						component.close();
+						return false;
+					});	
+					$(this.wrappers.content).find('[overlay-trigger=hide]').click(function() {
+						$(this).removeAttr("overlay-trigger");
+						component.hide();
+						return false;
+					});	
+				}
 			},
 			getContext : function() {
 				try {
@@ -200,7 +209,10 @@ Required jUqery
 					'display': 'none',
 					'overflow-y': 'auto',
 					'overflow-x': 'hidden'
-				}, this.config.overlay.style));
+				}, this.config.overlay.style))
+				.tie(function() {
+					(plugin.config.overlay['class']) && ($(this).addClass(plugin.config.overlay['class']));
+				})
 
 				/* get z index for this */
 				this.z.overlay = this.config.zIndex ? this.config.zIndex : Brahma.document.zindex.get(2);
@@ -222,14 +234,19 @@ Required jUqery
 				})
 				.and($('<td />'))
 				.css({
-					'height': '100%'
+					'height': '100%',
+					'vertical-align': 'top'
 				})
 				.tie(function() {
 
 					/* get z index for this */
 					plugin.z.panel = plugin.config.zIndex ? plugin.config.zIndex+1 : Brahma.document.zindex.get(1);
 
-					plugin.wrappers.contentWrapper = $(this).put($('<div />')).css(plugin.config.panel.style).hide()
+					plugin.wrappers.contentWrapper = $(this).put($('<div />')).css(plugin.config.panel.style)
+					.tie(function() {
+						(plugin.config.panel['class']) && ($(this).addClass(plugin.config.panel['class']));
+					})
+					.hide()
 					.condition(plugin.config["class"], function(c) {
 						$(this).addClass(c);
 						return this; 
@@ -284,7 +301,7 @@ Required jUqery
 						case 'function':
 
 							arguments[0].call(this, this.wrappers.content);
-							this.reInitContent();
+							
 							
 						break;
 						case 'object':
@@ -294,6 +311,7 @@ Required jUqery
 							$(this.wrappers.content).html(arguments[0]);
 						break;
 					}
+					this.bindContents();
 					return this;
 					
 				} else {
