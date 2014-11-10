@@ -243,6 +243,9 @@ Required jUqery
 					plugin.z.panel = plugin.config.zIndex ? plugin.config.zIndex+1 : Brahma.document.zindex.get(1);
 
 					plugin.wrappers.contentWrapper = $(this).put($('<div />')).css(plugin.config.panel.style)
+					.css({
+						'display': 'inline-block'
+					})
 					.tie(function() {
 						(plugin.config.panel['class']) && ($(this).addClass(plugin.config.panel['class']));
 					})
