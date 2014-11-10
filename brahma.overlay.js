@@ -9,6 +9,7 @@ Required jUqery
 	
 		Brahma.component('overlay',
 		{
+			width: 'auto',
 			context : null,
 			config: {
 				content: '',
@@ -235,6 +236,7 @@ Required jUqery
 				.and($('<td />'))
 				.css({
 					'height': '100%',
+					'width': this.config.width,
 					'vertical-align': 'top'
 				})
 				.tie(function() {
@@ -244,7 +246,8 @@ Required jUqery
 
 					plugin.wrappers.contentWrapper = $(this).put($('<div />')).css(plugin.config.panel.style)
 					.css({
-						'display': 'inline-block'
+						'display': 'inline-block',						
+						'width': plugin.config.width
 					})
 					.tie(function() {
 						(plugin.config.panel['class']) && ($(this).addClass(plugin.config.panel['class']));
