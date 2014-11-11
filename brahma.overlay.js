@@ -9,6 +9,7 @@ Required jUqery
 	
 		Brahma.component('overlay',
 		{
+			width: 'auto',
 			context : null,
 			config: {
 				content: '',
@@ -235,6 +236,7 @@ Required jUqery
 				.and($('<td />'))
 				.css({
 					'height': '100%',
+					'width': this.config.width,
 					'vertical-align': 'top'
 				})
 				.tie(function() {
@@ -243,6 +245,10 @@ Required jUqery
 					plugin.z.panel = plugin.config.zIndex ? plugin.config.zIndex+1 : Brahma.document.zindex.get(1);
 
 					plugin.wrappers.contentWrapper = $(this).put($('<div />')).css(plugin.config.panel.style)
+					.css({
+						'display': 'inline-block',						
+						'width': plugin.config.width
+					})
 					.tie(function() {
 						(plugin.config.panel['class']) && ($(this).addClass(plugin.config.panel['class']));
 					})
@@ -401,9 +407,7 @@ Required jUqery
 					break;
 					default:
 						
-						$(component.wrappers.overlay).animate({
-							opacity: 0
-						}, this.config.duration, function() {
+						$(component.wrappers.overlay).fadeOut(this.config.duration, function() {
 							component.trigger('hide');
 							if (typeof callback == "function") callback.apply(component);
 						});
