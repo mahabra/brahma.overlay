@@ -225,6 +225,7 @@ Required jUqery
 					'cellpadding': 0
 				}))
 				.css({
+					'width': this.config.width,
 					'height': '100%',
 					'margin': '0 auto'
 				})
@@ -236,7 +237,6 @@ Required jUqery
 				.and($('<td />'))
 				.css({
 					'height': '100%',
-					'width': this.config.width,
 					'vertical-align': 'top'
 				})
 				.tie(function() {
