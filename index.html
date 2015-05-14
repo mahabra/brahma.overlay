@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brahma.overlay Demo</title>
+	<!-- Demo meta -->
+	<link rel="stylesheet" href="demo/demo.css" />
+	
+</head>
+<body>
+	<center>
+		<button id="trigger-1">Open popup</button>
+	</center>
+</body>
+<script src="http://brahmajs.things/dist/brahma.js" type="text/javascript"></script>
+<script src="dist/brahma.overlay.js" type="text/javascript"></script>
+<script src="demo/demo.js" type="text/javascript"></script>
+<script>
+Brahma("#trigger-1").bind('click', function() {
+	Brahma("body").app("overlay", {
+		overlay: {
+			style: {
+				background: 'rgba(0,0,0,0.5)'
+			}
+		}
+	}).html('Test');
+});
+</script>
+</html>
