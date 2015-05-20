@@ -17,6 +17,9 @@
     "modal",
     "popup"
   ],
+  "ignore": {
+    "node_modules"
+  },
   "license": "MIT",
   "homepage": "https://github.com/morulus/brahma.overlay",
   "dependencies": {

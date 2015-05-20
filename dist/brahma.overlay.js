@@ -209,12 +209,10 @@ Brahma.app('overlay',
 				'margin': ''
 			});
 			// Модифицируем таблицу для выравнивания позиции слоя после восстановления сколлбара контекста
-			var shift = that.current.backup.marginDifference/2;
+			var shift = that.current.backup.marginDifference;
 
 			Brahma(that.wrappers.table).css({
-				'-webkit-transform': 'translateX('+shift+'px)',
-				'-ms-transform': 'translateX('+shift+'px)',
-				'transform': 'translateX('+shift+'px)'
+				'width': (Brahma(this.context).width()+shift)+'px'
 			});
 			setTimeout(function() {
 				Brahma(that.wrappers.table).css({
