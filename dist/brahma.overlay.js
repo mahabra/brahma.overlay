@@ -211,13 +211,13 @@ Brahma.app('overlay',
 			// Модифицируем таблицу для выравнивания позиции слоя после восстановления сколлбара контекста
 			var shift = that.current.backup.marginDifference/2;
 
-			$(that.wrappers.table).css({
+			Brahma(that.wrappers.table).css({
 				'-webkit-transform': 'translateX('+shift+'px)',
 				'-ms-transform': 'translateX('+shift+'px)',
 				'transform': 'translateX('+shift+'px)'
 			});
 			setTimeout(function() {
-				$(that.wrappers.table).css({
+				Brahma(that.wrappers.table).css({
 					'-webkit-transform': 'translateX(0px)',
 					'-ms-transform': 'translateX(0px)',
 					'transform': 'translateX(0px)'

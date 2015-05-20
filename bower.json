@@ -1,6 +1,6 @@
 {
   "name": "brahma.overlay",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "authors": [
     "Morulus <vladimirmorulus@gmail.com>"
   ],
@@ -20,8 +20,6 @@
   "license": "MIT",
   "homepage": "https://github.com/morulus/brahma.overlay",
   "dependencies": {
-    "jquery": ">=1.7.1",
-    "jquery.tie": "latest",
-    "brahma": ">=1.0.0"
+    "brahma": ">=1.4.2"
   }
 }
